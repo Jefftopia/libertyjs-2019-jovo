@@ -87,5 +87,25 @@
 			"$1"
 		],
 		"description": "No Intent"
+	},
+	"Launch handler": {
+		"scope": "javascript, typescript",
+		"prefix": "Launch",
+		"body": [
+			"LAUNCH() {",
+			"\tlet speech = 'Do you either go through the blue door, or through the red door?';",
+			"\tlet reprompt = 'You have two options, the blue door, or the red door.';",
+			"\t//this.ask(speech, reprompt);",
+			"},",
+			"BlueDoorIntent() {",
+			"\tlet speech = 'You chose to go through the blue door.';",
+			"\t//",
+			"},",
+			"RedDoorIntent() {",
+			"\tlet speech = 'You chose to go through the red door.';",
+			"\t//",
+			"},",
+		],
+		"description": "Launch, red-door, and blue-door placeholder handlers"
 	}
 }

@@ -2,29 +2,53 @@
 	"invocation": "my test app",
 	"intents": [
 		{
-			"name": "HelloWorldIntent",
+			"name": "BlueDoorIntent",
 			"phrases": [
-				"hello",
-				"say hello",
-				"say hello world"
+				"I want to go through the blue door",
+				"go through the blue door",
+				"through the blue door",
+				"the blue door",
+				"blue door",
+				"blue"
 			]
 		},
 		{
-			"name": "MyNameIsIntent",
+			"name": "RedDoorIntent",
 			"phrases": [
-				"{name}",
-				"my name is {name}",
-				"i am {name}",
-				"you can call me {name}"
-			],
-			"inputs": [
-				{
-					"name": "name",
-					"type": {
-						"alexa": "AMAZON.US_FIRST_NAME",
-						"dialogflow": "@sys.given-name"
-					}
-				}
+				"I want to go through the red door",
+				"go through the red door",
+				"through the red door",
+				"the red door",
+				"red door",
+				"red"
+			]
+		},
+		{
+			"name": "YesIntent",
+			"alexa": {
+				"name": "AMAZON.YesIntent"
+			},
+			"phrases": [
+				"Yes",
+				"yeah",
+				"sure",
+				"okay",
+				"yup",
+				"yep",
+				"yes please"
+			]
+		},
+		{
+			"name": "NoIntent",
+			"alexa": {
+				"name": "AMAZON.NoIntent"
+			},
+			"phrases": [
+				"No",
+				"Nope",
+				"nah",
+				"negative",
+				"no thanks"
 			]
 		}
 	],

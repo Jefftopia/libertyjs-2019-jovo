@@ -1,0 +1,91 @@
+{
+	// Place your libertyjs-2019-jovo workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Blue Door Intent": {
+		"scope": "json, string, String",
+		"prefix": ["Blue door", "BlueDoor", "BlueDoorIntent"],
+		"body": [
+			"{",
+				"\t\"name\": \"BlueDoorIntent\",",
+				 "\t\"phrases\": [",
+					"\t\t\"I want to go through the blue door\",",
+					"\t\t\"go through the blue door\",",
+					"\t\t\"through the blue door\",",
+					"\t\t\"the blue door\",",
+					"\t\t\"blue door\",",
+					"\t\t\"blue\"",
+				"\t]",
+			"},",
+			"$1"
+		],
+		"description": "Blue Door Intent"
+	},
+	"Red Door Intent": {
+		"scope": "json, string, String",
+		"prefix": ["Red door", "RedDoor", "RedDoorIntent"],
+		"body": [
+			"{",
+				"\t\"name\": \"RedDoorIntent\",",
+				 "\t\"phrases\": [",
+					"\t\t\"I want to go through the red door\",",
+					"\t\t\"go through the red door\",",
+					"\t\t\"through the red door\",",
+					"\t\t\"the red door\",",
+					"\t\t\"red door\",",
+					"\t\t\"red\"",
+				"\t]",
+			"},",
+			"$1"
+		],
+		"description": "Red Door Intent"
+	},
+	"Yes Intent": {
+		"scope": "json, string, String",
+		"prefix": ["YesIntent"],
+		"body": [
+			"{",
+				"\t\"name\": \"YesIntent\",",
+				"\t\"alexa\": {",
+				"\t\t\"name\": \"AMAZON.YesIntent\"",
+				"\t},",
+				 "\t\"phrases\": [",
+					"\t\t\"Yes\",",
+					"\t\t\"yeah\",",
+					"\t\t\"sure\",",
+					"\t\t\"okay\",",
+					"\t\t\"yup\",",
+					"\t\t\"yep\",",
+					"\t\t\"yes please\"",
+				"\t]",
+			"},",
+			"$1"
+		],
+		"description": "Yes Intent"
+	},
+	"No Intent": {
+		"scope": "json, string, String",
+		"prefix": ["NoIntent"],
+		"body": [
+			"{",
+				"\t\"name\": \"NoIntent\",",
+				"\t\"alexa\": {",
+				"\t\t\"name\": \"AMAZON.NoIntent\"",
+				"\t},",
+				 "\t\"phrases\": [",
+					"\t\t\"No\",",
+					"\t\t\"Nope\",",
+					"\t\t\"nah\",",
+					"\t\t\"negative\",",
+					"\t\t\"no thanks\",",
+				"\t]",
+			"},",
+			"$1"
+		],
+		"description": "No Intent"
+	}
+}

@@ -2,32 +2,7 @@
 	"invocation": "my test app",
 	"intents": [
 		{
-			"name": "BlueDoorIntent",
-			"phrases": [
-				"I want to go through the blue door",
-				"go through the blue door",
-				"through the blue door",
-				"the blue door",
-				"blue door",
-				"blue"
-			]
-		},
-		{
-			"name": "RedDoorIntent",
-			"phrases": [
-				"I want to go through the red door",
-				"go through the red door",
-				"through the red door",
-				"the red door",
-				"red door",
-				"red"
-			]
-		},
-		{
 			"name": "YesIntent",
-			"alexa": {
-				"name": "AMAZON.YesIntent"
-			},
 			"phrases": [
 				"Yes",
 				"yeah",
@@ -40,9 +15,6 @@
 		},
 		{
 			"name": "NoIntent",
-			"alexa": {
-				"name": "AMAZON.NoIntent"
-			},
 			"phrases": [
 				"No",
 				"Nope",

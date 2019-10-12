@@ -288,5 +288,18 @@
 			"$1"
 		],
 		"description": "Unhandled handler for entire Jovo app"
+	},
+	"Intent Map": {
+		"scope": "javascript, typescript",
+		"prefix": ["intentMap", "intent map", "map"],
+		"body": [
+		"intentMap: {",
+		"\t'AMAZON.StopIntent': 'END',",
+		"\t'AMAZON.YesIntent': 'YesIntent',",
+		"\t'AMAZON.NoIntent': 'NoIntent'",
+		"},",
+		"$1"
+		],
+		"description": "Intent map"
 	}
 }

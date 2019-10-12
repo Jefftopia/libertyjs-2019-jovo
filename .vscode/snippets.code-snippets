@@ -8,18 +8,22 @@
 	// Example:
 	"Blue Door Intent": {
 		"scope": "json, string, String",
-		"prefix": ["Blue door", "BlueDoor", "BlueDoorIntent"],
+		"prefix": [
+			"Blue door",
+			"BlueDoor",
+			"BlueDoorIntent"
+		],
 		"body": [
 			"{",
-				"\t\"name\": \"BlueDoorIntent\",",
-				 "\t\"phrases\": [",
-					"\t\t\"I want to go through the blue door\",",
-					"\t\t\"go through the blue door\",",
-					"\t\t\"through the blue door\",",
-					"\t\t\"the blue door\",",
-					"\t\t\"blue door\",",
-					"\t\t\"blue\"",
-				"\t]",
+			"\t\"name\": \"BlueDoorIntent\",",
+			"\t\"phrases\": [",
+			"\t\t\"I want to go through the blue door\",",
+			"\t\t\"go through the blue door\",",
+			"\t\t\"through the blue door\",",
+			"\t\t\"the blue door\",",
+			"\t\t\"blue door\",",
+			"\t\t\"blue\"",
+			"\t]",
 			"},",
 			"$1"
 		],
@@ -27,18 +31,22 @@
 	},
 	"Red Door Intent": {
 		"scope": "json, string, String",
-		"prefix": ["Red door", "RedDoor", "RedDoorIntent"],
+		"prefix": [
+			"Red door",
+			"RedDoor",
+			"RedDoorIntent"
+		],
 		"body": [
 			"{",
-				"\t\"name\": \"RedDoorIntent\",",
-				 "\t\"phrases\": [",
-					"\t\t\"I want to go through the red door\",",
-					"\t\t\"go through the red door\",",
-					"\t\t\"through the red door\",",
-					"\t\t\"the red door\",",
-					"\t\t\"red door\",",
-					"\t\t\"red\"",
-				"\t]",
+			"\t\"name\": \"RedDoorIntent\",",
+			"\t\"phrases\": [",
+			"\t\t\"I want to go through the red door\",",
+			"\t\t\"go through the red door\",",
+			"\t\t\"through the red door\",",
+			"\t\t\"the red door\",",
+			"\t\t\"red door\",",
+			"\t\t\"red\"",
+			"\t]",
 			"},",
 			"$1"
 		],
@@ -46,22 +54,24 @@
 	},
 	"Yes Intent": {
 		"scope": "json, string, String",
-		"prefix": ["YesIntent"],
+		"prefix": [
+			"YesIntent"
+		],
 		"body": [
 			"{",
-				"\t\"name\": \"YesIntent\",",
-				"\t\"alexa\": {",
-				"\t\t\"name\": \"AMAZON.YesIntent\"",
-				"\t},",
-				 "\t\"phrases\": [",
-					"\t\t\"Yes\",",
-					"\t\t\"yeah\",",
-					"\t\t\"sure\",",
-					"\t\t\"okay\",",
-					"\t\t\"yup\",",
-					"\t\t\"yep\",",
-					"\t\t\"yes please\"",
-				"\t]",
+			"\t\"name\": \"YesIntent\",",
+			"\t\"alexa\": {",
+			"\t\t\"name\": \"AMAZON.YesIntent\"",
+			"\t},",
+			"\t\"phrases\": [",
+			"\t\t\"Yes\",",
+			"\t\t\"yeah\",",
+			"\t\t\"sure\",",
+			"\t\t\"okay\",",
+			"\t\t\"yup\",",
+			"\t\t\"yep\",",
+			"\t\t\"yes please\"",
+			"\t]",
 			"},",
 			"$1"
 		],
@@ -69,24 +79,56 @@
 	},
 	"No Intent": {
 		"scope": "json, string, String",
-		"prefix": ["NoIntent"],
+		"prefix": [
+			"NoIntent"
+		],
 		"body": [
 			"{",
-				"\t\"name\": \"NoIntent\",",
-				"\t\"alexa\": {",
-				"\t\t\"name\": \"AMAZON.NoIntent\"",
-				"\t},",
-				 "\t\"phrases\": [",
-					"\t\t\"No\",",
-					"\t\t\"Nope\",",
-					"\t\t\"nah\",",
-					"\t\t\"negative\",",
-					"\t\t\"no thanks\",",
-				"\t]",
+			"\t\"name\": \"NoIntent\",",
+			"\t\"alexa\": {",
+			"\t\t\"name\": \"AMAZON.NoIntent\"",
+			"\t},",
+			"\t\"phrases\": [",
+			"\t\t\"No\",",
+			"\t\t\"Nope\",",
+			"\t\t\"nah\",",
+			"\t\t\"negative\",",
+			"\t\t\"no thanks\",",
+			"\t]",
 			"},",
 			"$1"
 		],
 		"description": "No Intent"
+	},
+	"EnterDoor Intent": {
+		"scope": "json, string, String",
+		"prefix": [
+			"enter",
+			"enter door",
+			"EnterDoor",
+			"EnterDoorIntent"
+		],
+		"body": [
+			"{",
+			"\t\"name\": \"EnterDoorIntent\",",
+			"\t\"phrases\": [",
+			"\t\t\"I want to go through the {color} door\",",
+			"\t\t\"go through the {color} door\",",
+			"\t\t\"through the {color} door\",",
+			"\t\t\"the {color} door\",",
+			"\t\t\"{color} door\",",
+			"\t\t\"{color}\"",
+			"\t],",
+			"\t\"inputs\": [",
+			"\t\t{",
+			"\t\t\t\"name\": \"color\",",
+			"\t\t\t\"type\": \"Color\"",
+			"\t\t}",
+			"\t]",
+			"},",
+			"$1"
+		],
+		"description": "Red Door Intent"
 	},
 	"Launch handler": {
 		"scope": "javascript, typescript",
@@ -107,5 +149,144 @@
 			"},",
 		],
 		"description": "Launch, red-door, and blue-door placeholder handlers"
+	},
+	"Enter Door Handler": {
+		"scope": "javascript, typescript",
+		"prefix": "Enter Door Handler",
+		"body": [
+			"EnterDoorIntent() {",
+			"    let speech = '';",
+			"    let reprompt = '';",
+			"",
+			"    if (this.\\$inputs.color.value === 'blue') {",
+			"        speech = `You chose to go through the blue door.",
+			"            There is a dark, long floor. Suddenly, you hear a sound from a room at the end of it.",
+			"            Do you want to follow the sound?`;",
+			"        reprompt = 'Please say yes or no.';",
+			"        this.followUpState('BlueDoorState').ask(speech, reprompt);",
+			"    } else if (this.\\$inputs.color.value === 'red') {",
+			"        speech = `You chose to go through the red door.",
+			"            You find yourself in a small room with only one door, and a dog sleeping in front of it.",
+			"            To go through it, you would have to wake up the dog. Do you want to do it?`;",
+			"        reprompt = 'Please say yes or no.';",
+			"        this.followUpState('RedDoorState').ask(speech, reprompt);",
+			"    } else {",
+			"        speech = 'Please choose either the blue door or the red door.'; ",
+			"        reprompt = 'Say blue door, or red door.'; ",
+			"        this.ask(speech, reprompt); ",
+			"    }",
+			"},"
+		],
+		"description": "JS Snippet for the EnterDoorIntent handler"
+	},
+	"BlueDoor State": {
+		"scope": "javascript, typescript",
+		"prefix": "BlueDoorState",
+		"body": [
+			"BlueDoorState: {",
+			"    YesIntent() {",
+			"        let speech = 'Blue Door: You chose Yes!';",
+			"        this.tell(speech);",
+			"    },",
+			"",
+			"    NoIntent() {",
+			"        let speech = 'Blue Door: You chose No!';",
+			"        this.tell(speech);",
+			"    },",
+			"},"
+		],
+		"description": "Jovo State for BlueDoor Handler"
+	},
+	"RedDoor State": {
+		"scope": "javascript, typescript",
+		"prefix": "RedDoorState",
+		"body": [
+			"RedDoorState: {",
+			"    YesIntent() {",
+			"        let speech = 'Red Door: You chose Yes!';",
+			"        this.tell(speech);",
+			"    },",
+			"",
+			"    NoIntent() {",
+			"        let speech = 'Red Door: You chose No!';",
+			"        this.tell(speech);",
+			"    },",
+			"},"
+		],
+		"description": ""
+	},
+	"Input Types": {
+		"scope": "json, string, String",
+		"prefix": [
+			"inputTypes",
+			"input type",
+			"Color",
+			"ColorInput",
+			"color input"
+		],
+		"body": [
+			"\"inputTypes\": [",
+			"\t{",
+			"\t\t\"name\": \"Color\",",
+			"\t\t\"alexa\": \"AMAZON.Color\",",
+			"\t\t\"dialogflow\": \"@sys.color\",",
+			"\t\t\"values\": [",
+			"\t\t\t{",
+			"\t\t\t\t\"value\": \"red\"",
+			"\t\t\t},",
+			"\t\t\t{",
+			"\t\t\t\t\"value\": \"blue\"",
+			"\t\t\t}",
+			"\t\t]",
+			"\t}",
+			"],",
+			"$1"
+		],
+		"description": "inputType for door color"
+	},
+	"Unhandled BlueDoorState": {
+		"scope": "javascript, typescript",
+		"prefix": [
+			"Unhandled BlueDoorState",
+			"blue door state unhandled"
+		],
+		"body": [
+			"Unhandled() {",
+			"\tthis.followUpState('BlueDoorState')",
+			"\t\t.ask('You have to answer with yes or no.', 'Please say yes or no');",
+			"},",
+			"$1"
+		],
+		"description": "handled handler for bluedoor state"
+	},
+	"Unhandled RedDoorState": {
+		"scope": "javascript, typescript",
+		"prefix": [
+			"Unhandled RedDoorState",
+			"red door state unhandled"
+		],
+		"body": [
+			"Unhandled() {",
+			"\tthis.followUpState('RedDoorState')",
+			"\t\t.ask('You have to answer with yes or no.', 'Please say yes or no');",
+			"},",
+			"$1"
+		],
+		"description": "handled handler for reddoor state"
+	},
+	"Uhandled Global": {
+		"scope": "javascript, typescript",
+		"prefix": [
+			"global unhandled",
+			"app unhandled",
+			"unhandled global"
+		],
+		"body": [
+			"Unhandled() {",
+			"  this.toIntent('LAUNCH');",
+			"},",
+			"$1"
+		],
+		"description": "Unhandled handler for entire Jovo app"
 	}
 }

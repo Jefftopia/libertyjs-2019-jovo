@@ -23,6 +23,8 @@ $ jovo new <directory> --template helloworld
 
 ### NodeJS + NPM
 
+>Already have NPM and NodeJS? Feel free to skip this section!
+
 The most robust way to use NodeJS is through nvm, which stands for Node Version Manager.
 Sometimes, NodeJS versions move ahead of what's supported in remote hosting environments. NVM makes choosing a version of node per-project easy, so we're going to use NVM to install NodeJS and pick the right version. For us, we'll use node version _10.10_. The `.nvmrc` file already has this recorded.
 
@@ -36,6 +38,8 @@ Now, let's use nvm to install node v10.10:
 You can read more about NVM [here](https://github.com/nvm-sh/nvm).
 
 ### AWS CLI
+
+>NB: AWS CLI installation is _optional_ for this workshop, but you'll need it when you're ready to deploy your node application.
 
 If you do not have the python package manager, `pip`, you can install with the following bash:
 
@@ -61,6 +65,8 @@ More info on the ASK CLI is available [here](https://developer.amazon.com/docs/s
 
 ### Jovo CLI
 
+The Jovo CLI is used to manage & deploy project files and code. This npm package is required for the workshop.
+
 >`npm install -g jovo-cli`
 
 More info [here](https://github.com/jovotech/jovo-cli).
@@ -75,3 +81,10 @@ If you want to get back to this source repo quickly, follow [this link](https://
 
 1. `npm install`
 2. `npm start`
+
+
+// wip
+Jovo build -t model -p alexaSkill
+npm run deploy.model
+
+npm start

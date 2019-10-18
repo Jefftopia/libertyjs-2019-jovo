@@ -301,5 +301,53 @@
 		"$1"
 		],
 		"description": "Intent map"
-	}
+	},
+	"HelloWorld Intent": {
+		"scope": "json, string, String",
+		"prefix": [
+			"HelloWorld Intent",
+			"Hello World Intent",
+			"Hello World"
+		],
+		"body": [
+		  "{",
+		  "\t\"name\": \"HelloWorldIntent\",",
+		  "\t\"phrases\": [",
+		  "\t\t\"hello\",",
+		  "\t\t\"say hello\",",
+		  "\t\t\"say hello world\"",
+		  "\t]",
+		  "},",
+		],
+		"description": "intent for Hello World"
+	  },
+	  "MyNameIs Intent": {
+		"scope": "json, string, String",
+		"prefix": [
+			"MyNameIsIntent",
+			"MyNameIs Intent",
+			"MyName Is Intent"
+		],
+		"body": [
+			"{",
+			"\t\"name\": \"MyNameIsIntent\",",
+			"\t\"phrases\": [",
+			"\t\t\"{name}\",",
+			"\t\t\"my name is {name}\",",
+			"\t\t\"i am {name}\",",
+			"\t\t\"you can call me {name}\"",
+			"\t],",
+			"\t\"inputs\": [",
+			"\t\t{",
+			"\t\t\t\"name\": \"name\",",
+			"\t\t\t\"type\": {",
+			"\t\t\t\t\"alexa\": \"AMAZON.US_FIRST_NAME\",",
+			"\t\t\t\t\"dialogflow\": \"@sys.given-name\"",
+			"\t\t\t}",
+			"\t\t}",
+			"\t]",
+			"},"
+		],
+		"description": "my name is intent"
+	  }
 }

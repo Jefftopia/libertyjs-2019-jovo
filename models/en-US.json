@@ -1,6 +1,14 @@
 {
 	"invocation": "door game",
 	"intents": [
+		{
+			"name": "HelloWorldIntent",
+			"phrases": [
+				"hello",
+				"say hello",
+				"say hello world"
+			]
+		}
 	],
 	"alexa": {
 		"interactionModel": {

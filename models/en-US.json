@@ -1,55 +1,6 @@
 {
 	"invocation": "door game",
 	"intents": [
-		{
-			"name": "YesIntent",
-			"alexa": {
-				"name": "AMAZON.YesIntent"
-			},
-			"phrases": [
-				"Yes",
-				"yeah",
-				"sure",
-				"okay",
-				"yup",
-				"yep",
-				"yes please"
-			]
-		},
-		{
-			"name": "NoIntent",
-			"alexa": {
-				"name": "AMAZON.NoIntent"
-			},
-			"phrases": [
-				"No",
-				"Nope",
-				"nah",
-				"negative",
-				"no thanks"
-			]
-		},
-		{
-			"name": "EnterDoorIntent",
-			"phrases": [
-				"I will enter through the {color} door",
-				"I want to go through the {color} door",
-				"go through the {color} door",
-				"through the {color} door",
-				"the {color} door",
-				"{color} door",
-				"{color}"
-			],
-			"inputs": [
-				{
-					"name": "color",
-					"type": {
-						"alexa": "AMAZON.Color",
-						"dialogflow": "@sys.color"
-					}
-				}
-			]
-		}
 	],
 	"alexa": {
 		"interactionModel": {

@@ -93,14 +93,57 @@
 			"\t\t\"Nope\",",
 			"\t\t\"nah\",",
 			"\t\t\"negative\",",
-			"\t\t\"no thanks\",",
+			"\t\t\"no thanks\"",
 			"\t]",
 			"},",
 			"$1"
 		],
 		"description": "No Intent"
 	},
-	"EnterDoor Intent": {
+	"EnterDoorHandler": {
+		"scope": "javascript, typescript",
+		"prefix": [
+			"enter",
+			"enter door",
+			"EnterDoor",
+			"EnterDoorIntent"
+		],
+		"body": [
+			"EnterDoorIntent() {",
+			"  let speech = `You chose to go through the \\${this.\\$inputs.color.value} door.`;",
+			"  this.tell(speech);",
+			"},",
+			"$1"
+		],
+		"description": "Initial EnterDoorIntent"
+	},
+	"EnterDoorHandler Step 2": {
+		"scope": "javascript, typescript",
+		"prefix": [
+			"enter two",
+			"enter door step two",
+			"EnterDoor two",
+			"EnterDoorIntent two"
+		],
+		"body": [
+			"EnterDoorIntent() {",
+			"    let speech = '';",
+			"    let reprompt = '';",
+			"",
+			"    if (this.\\$inputs.color.value === 'blue' || this.\\$inputs.color.value === 'red') {",
+			"        speech = `You chose to go through the \\${this.\\$inputs.color.value} door.`;",
+			"        this.tell(speech);",
+			"    } else {",
+			"        speech = 'Please choose either the blue door or the red door.';",
+			"        reprompt = 'Say blue door, or red door.';",
+			"        this.ask(speech, reprompt);",
+			"    }",
+			"},",
+			"$1"
+		],
+		"description": "Updated EnterDoorIntent for step 2"
+	},
+	"EnterDoor": {
 		"scope": "json, string, String",
 		"prefix": [
 			"enter",
@@ -122,7 +165,10 @@
 			"\t\"inputs\": [",
 			"\t\t{",
 			"\t\t\t\"name\": \"color\",",
-			"\t\t\t\"type\": \"Color\"",
+			"\t\t\t\"type\": {",
+			"\t\t\t\t\"alexa\": \"AMAZON.Color\"",
+			"\t\t\t\t\"dialogflow\": \"@sys.color\"",
+			"\t\t\t}",
 			"\t\t}",
 			"\t]",
 			"},",
@@ -150,9 +196,39 @@
 		],
 		"description": "Launch, red-door, and blue-door placeholder handlers"
 	},
-	"Enter Door Handler": {
+	"EnterDoor Step 4": {
 		"scope": "javascript, typescript",
-		"prefix": "Enter Door Handler",
+		"prefix": "EnterDoorIntent Step 4",
+		"body": [
+			"    EnterDoorIntent() {",
+			"        let speech = '';",
+			"        let reprompt = '';",
+			"",
+			"        if (this.\\$inputs.color.value === 'blue') {",
+			"            speech = `You chose to go through the blue door.",
+			"                There is a dark, long floor. Suddenly, you hear a sound from a room at the end of it.",
+			"                Do you want to follow the sound?`;",
+			"            reprompt = 'Please say yes or no.';",
+			"            this.ask(speech, reprompt);",
+			"        } else if (this.\\$inputs.color.value === 'red') {",
+			"            speech = `You chose to go through the red door.",
+			"                You find yourself in a small room with only one door, and a dog sleeping in front of it.",
+			"                To go through it, you would have to wake up the dog. Do you want to do it?`;",
+			"            reprompt = 'Please say yes or no.';",
+			"            this.ask(speech, reprompt);",
+			"        } else {",
+			"            speech = 'Please choose either the blue door or the red door.';",
+			"            reprompt = 'Say blue door, or red door.';",
+			"            this.ask(speech, reprompt);",
+			"        }",
+			"    },",
+			""
+		],
+		"description": ""
+	},
+	"Enter Door Handle Final": {
+		"scope": "javascript, typescript",
+		"prefix": "Enter Door Final Handler ",
 		"body": [
 			"EnterDoorIntent() {",
 			"    let speech = '';",
@@ -177,7 +253,7 @@
 			"    }",
 			"},"
 		],
-		"description": "JS Snippet for the EnterDoorIntent handler"
+		"description": "Final EnterDoorIntent handler"
 	},
 	"BlueDoor State": {
 		"scope": "javascript, typescript",
@@ -229,15 +305,7 @@
 			"\t{",
 			"\t\t\"name\": \"Color\",",
 			"\t\t\"alexa\": \"AMAZON.Color\",",
-			"\t\t\"dialogflow\": \"@sys.color\",",
-			"\t\t\"values\": [",
-			"\t\t\t{",
-			"\t\t\t\t\"value\": \"red\"",
-			"\t\t\t},",
-			"\t\t\t{",
-			"\t\t\t\t\"value\": \"blue\"",
-			"\t\t\t}",
-			"\t\t]",
+			"\t\t\"dialogflow\": \"@sys.color\"",
 			"\t}",
 			"],",
 			"$1"
@@ -291,14 +359,18 @@
 	},
 	"Intent Map": {
 		"scope": "javascript, typescript",
-		"prefix": ["intentMap", "intent map", "map"],
+		"prefix": [
+			"intentMap",
+			"intent map",
+			"map"
+		],
 		"body": [
-		"intentMap: {",
-		"\t'AMAZON.StopIntent': 'END',",
-		"\t'AMAZON.YesIntent': 'YesIntent',",
-		"\t'AMAZON.NoIntent': 'NoIntent'",
-		"},",
-		"$1"
+			"intentMap: {",
+			"\t'AMAZON.StopIntent': 'END',",
+			"\t'AMAZON.YesIntent': 'YesIntent',",
+			"\t'AMAZON.NoIntent': 'NoIntent'",
+			"},",
+			"$1"
 		],
 		"description": "Intent map"
 	},
@@ -310,18 +382,18 @@
 			"Hello World"
 		],
 		"body": [
-		  "{",
-		  "\t\"name\": \"HelloWorldIntent\",",
-		  "\t\"phrases\": [",
-		  "\t\t\"hello\",",
-		  "\t\t\"say hello\",",
-		  "\t\t\"say hello world\"",
-		  "\t]",
-		  "},",
+			"{",
+			"\t\"name\": \"HelloWorldIntent\",",
+			"\t\"phrases\": [",
+			"\t\t\"hello\",",
+			"\t\t\"say hello\",",
+			"\t\t\"say hello world\"",
+			"\t]",
+			"},",
 		],
 		"description": "intent for Hello World"
-	  },
-	  "MyNameIs Intent": {
+	},
+	"MyNameIs Intent": {
 		"scope": "json, string, String",
 		"prefix": [
 			"MyNameIsIntent",
@@ -349,5 +421,25 @@
 			"},"
 		],
 		"description": "my name is intent"
-	  }
+	},
+	"YesNo Handler": {
+		"scope": "javascript, typescript",
+		"prefix": [
+			"YesNo initial Handler",
+			"Yes No initial Handler"
+		],
+		"body": [
+			"YesIntent() {",
+			"\tlet speech = 'You chose Yes!';",
+			"\tthis.tell(speech);",
+			"},",
+			"",
+			"NoIntent() {",
+			"\tlet speech = 'You chose No!';",
+			"\tthis.tell(speech);",
+			"},",
+			"$1"
+		],
+		"description": "First-pass YesIntent and NoIntent handlers"
+	}
 }

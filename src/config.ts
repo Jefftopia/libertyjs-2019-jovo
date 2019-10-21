@@ -7,6 +7,8 @@ const config = {
 
     intentMap: {
         'AMAZON.StopIntent': 'END',
+        'AMAZON.YesIntent': 'YesIntent',
+        'AMAZON.NoIntent': 'NoIntent'
     },
 
     db: {

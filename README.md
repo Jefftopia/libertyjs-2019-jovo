@@ -20,6 +20,8 @@ $ jovo new <directory> --template helloworld
 
 ## Setup Instructions for LibertyJS 2019!
 
+>NB: Link to Google Slides from the talk now available [here](https://docs.google.com/presentation/d/1jdoUNGSurPH6ixrqbUI1-Vi1t1LxgeGVOq6x33GT_bM/edit?usp=sharing).
+
 
 ### NodeJS + NPM
 

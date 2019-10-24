@@ -1,8 +1,8 @@
-import {App} from 'jovo-framework';
-import {Alexa} from 'jovo-platform-alexa';
-import {JovoDebugger} from 'jovo-plugin-debugger';
-import {FileDb} from 'jovo-db-filedb';
-import {GoogleAssistant} from 'jovo-platform-googleassistant';
+import { App } from 'jovo-framework';
+import { Alexa } from 'jovo-platform-alexa';
+import { JovoDebugger } from 'jovo-plugin-debugger';
+import { FileDb } from 'jovo-db-filedb';
+import { GoogleAssistant } from 'jovo-platform-googleassistant';
 
 // ------------------------------------------------------------------
 // APP INITIALIZATION
@@ -23,6 +23,7 @@ app.use(
 // ------------------------------------------------------------------
 
 app.setHandler({
+
     LAUNCH() {
         return this.toIntent('HelloWorldIntent');
     },
@@ -30,6 +31,7 @@ app.setHandler({
     HelloWorldIntent() {
         this.ask(`Hello World! What's your name?`, 'Please tell me your name.');
     }
+
 });
 
-export {app};
+export { app };

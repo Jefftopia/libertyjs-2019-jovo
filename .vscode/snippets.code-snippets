@@ -166,7 +166,7 @@
 			"\t\t{",
 			"\t\t\t\"name\": \"color\",",
 			"\t\t\t\"type\": {",
-			"\t\t\t\t\"alexa\": \"AMAZON.Color\"",
+			"\t\t\t\t\"alexa\": \"AMAZON.Color\",",
 			"\t\t\t\t\"dialogflow\": \"@sys.color\"",
 			"\t\t\t}",
 			"\t\t}",

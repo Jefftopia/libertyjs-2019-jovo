@@ -441,5 +441,28 @@
 			"$1"
 		],
 		"description": "First-pass YesIntent and NoIntent handlers"
-	}
+	},
+	"project js - full": {
+		"scope": "javascript, typescript",
+		"prefix": "project js",
+		"body": [
+		  "module.exports = {",
+		  "    alexaSkill: {",
+		  "       nlu: 'alexa',",
+		  "       skillId: ``,",
+		  "       askProfile: ''",
+		  "    },",
+		  "    googleAction: {",
+		  "       nlu: 'dialogflow',",
+		  "       dialogflow: {",
+		  "          projectId: ``,",
+		  "          keyFile: ``",
+		  "       }",
+		  "    },",
+		  "    endpoint: '',",
+		  "};",
+		  ""
+		],
+		"description": "Outline of the complete project.js file we will need"
+	  }
 }

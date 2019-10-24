@@ -459,7 +459,7 @@
 		  "          keyFile: ``",
 		  "       }",
 		  "    },",
-		  "    endpoint: '',",
+		  "    endpoint: '${JOVO_WEBHOOK_URL}',",
 		  "};",
 		  ""
 		],

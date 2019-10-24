@@ -2,8 +2,8 @@
   "name": "jovo-sample-voice-app-nodejs",
   "version": "2.0.2",
   "description": "A sample voice app that works with the Jovo Framework",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
   "dependencies": {
     "jovo-db-filedb": "^2.0.2",
     "jovo-framework": "^2.2.17",
@@ -29,12 +29,13 @@
     "tsc": "tsc",
     "tscw": "tsc --watch",
     "tslint": "tslint -p tsconfig.json -c tslint.json",
-    "bundle": "gulp --gulpfile node_modules/jovo-framework/gulpfile.js build-ts --cwd ./",
+    "bundle": "gulp --gulpfile node_modules/jovo-framework/gulpfile.js --cwd ./",
     "run": "cd ./dist/src && node index.js --webhook",
     "launch": "npm start -- --launch",
     "start": "jovo run",
     "build.model": "jovo build -t model -p alexaSkill",
-    "deploy.model": "jovo deploy -t model -p alexaSkill"
+    "deploy.model": "jovo deploy -t model -p alexaSkill",
+    "deploy.code": "aws lambda update-function-code --function-name <doorBot> --zip-file fileb://bundle.zip --profile <ask-profile>"
   },
   "jest": {
     "transform": {
